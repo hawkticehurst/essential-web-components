@@ -1,9 +1,9 @@
 {
-	"name": "vanilla-bean-website",
+	"name": "essential-web-components",
 	"version": "1.0.0",
 	"type": "module",
 	"private": true,
-	"description": "An opinionated way of building vanilla websites.",
+	"description": "Concise plain-speak about web components.",
 	"author": "Hawk Ticehurst",
 	"license": "MIT",
 	"scripts": {
