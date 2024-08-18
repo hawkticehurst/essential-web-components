@@ -1,0 +1,31 @@
+.link-button {
+	color: black;
+	background: white;
+	background: linear-gradient(
+		70deg,
+		rgba(255, 244, 253, 1) 0%,
+		rgba(252, 248, 255, 1) 44%,
+		rgba(230, 250, 255, 1) 100%
+	);
+	font-size: 1rem;
+	font-family: inherit;
+	font-weight: 500;
+	text-decoration: none;
+	padding: 6px 20px;
+	border: none;
+	border-radius: 10px;
+}
+.link-button:hover {
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
+	box-shadow: 0 0 30px rgba(230, 250, 255, 0.357);
+}
+.link-button:focus-visible {
+	color: black;
+	text-decoration: none;
+	outline: 2px solid white;
+	border-radius: 10px;
+	outline-offset: 2px;
+	box-shadow: 0 0 30px rgba(230, 250, 255, 0.357);
+}

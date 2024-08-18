@@ -1,0 +1,16 @@
+{
+	"name": "vanilla-bean-website",
+	"version": "1.0.0",
+	"type": "module",
+	"private": true,
+	"description": "An opinionated way of building vanilla websites.",
+	"author": "Hawk Ticehurst",
+	"license": "MIT",
+	"scripts": {
+		"start": "wds --root-dir site --watch --open"
+	},
+	"devDependencies": {
+		"@web/dev-server": "^0.4.6",
+		"prettier": "^3.3.3"
+	}
+}

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/favicon.png" type="image/png" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>Web Components by Example</title>
+		<meta name="title" content="Web Components by Example" />
+		<meta
+			name="description"
+			content="A collection of annotated code snippets demonstrating vanilla web components.."
+		/>
+		<meta name="author" content="Hawk Ticehurst" />
+
+		<!-- Open graph meta tags -->
+		<meta property="og:title" content="Web Components by Example" />
+		<meta
+			property="og:description"
+			content="A collection of annotated code snippets demonstrating vanilla web components.."
+		/>
+		<meta property="og:url" content="https://webcomponents.fyi/examples/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="https://webcomponents.fyi/_imgs/seo.png" />
+
+		<!-- Twitter meta tags -->
+		<meta property="twitter:title" content="Web Components by Example" />
+		<meta
+			property="twitter:description"
+			content="A collection of annotated code snippets demonstrating vanilla web components.."
+		/>
+		<meta property="twitter:url" content="https://webcomponents.fyi/examples/" />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:image" content="https://webcomponents.fyi/_imgs/seo.png" />
+
+		<!-- Styles -->
+		<style>
+			@import url('/_styles/global.css');
+			@import url('/_components/navbar.css');
+			:root {
+				--content-width: 700px;
+			}
+			h1 {
+				font-size: 2.4rem;
+				word-spacing: -2px;
+				margin-top: 3rem;
+				margin-bottom: 1.5rem;
+			}
+			h1 > span {
+				color: #929292;
+				font-size: 1.4rem;
+				font-style: italic;
+				font-weight: 500;
+			}
+			h2 {
+				font-size: 1rem;
+				margin: 1rem 0;
+			}
+			ul {
+				padding-left: 0;
+				margin: 1rem 0;
+			}
+			ul li {
+				list-style: none;
+			}
+			p:last-child,
+			p:last-child a {
+				color: var(--text-secondary-color);
+			}
+			ul li a,
+			p:last-child a {
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 3px;
+			}
+			:root {
+				--gap: 20px;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: var(--gap);
+				width: var(--content-width);
+				max-width: fit-content;
+				margin: 4rem auto 0 auto;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="navbar-logo" href="/">
+				<img src="/_icons/webcomponents.svg" alt="Web component logo" />
+			</a>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/essentials/">Essentials</a>
+				<a href="/examples/">Examples</a>
+			</nav>
+		</header>
+		<main>
+			<h1>Web Components <span>by example</span></h1>
+			<p>
+				Web components by example is a collection of annotated code snippets demonstrating vanilla
+				web components APIs. It acts as a reference for what's possible with web components and how
+				to achieve those possibilities.
+			</p>
+			<section class="grid" data-columns="3" data-rows="3">
+				<section>
+					<h2>Basics</h2>
+					<ul>
+						<li><a href="#">Hello World</a></li>
+						<li><a href="#">Lifecycle Methods</a></li>
+						<li><a href="#">Event Handling</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Custom Elements</h2>
+					<ul>
+						<li><a href="#">Attributes</a></li>
+						<li><a href="#">Properties</a></li>
+						<li><a href="#">Custom Elements Upgrade</a></li>
+						<li><a href="#">Anonymous and Built-in Elements</a></li>
+						<li><a href="#">Lifecycle Methods</a></li>
+						<li><a href="#">Passing an Object of Data</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Shadow DOM</h2>
+					<ul>
+						<li><a href="/examples/js/scoped-styles">Scoped Styles</a></li>
+						<li><a href="#">CSS Properties + Shadow DOM</a></li>
+						<li><a href="#">CSS Parts + Shadow DOM</a></li>
+						<li><a href="#">Slots</a></li>
+						<li><a href="#">Named slots</a></li>
+						<li><a href="#">Declarative Shadow DOM</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Templating</h2>
+					<ul>
+						<li><a href="#">Basic Template</a></li>
+						<li><a href="#">Tagged Templates</a></li>
+						<li><a href="#">Conditional Rendering</a></li>
+						<li><a href="#">Mapping over data</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>HTML Web Components</h2>
+					<ul>
+						<li><a href="/examples/html/hello-world">Hello World</a></li>
+						<li><a href="/examples/html/counter-button">Counter Button</a></li>
+						<li><a href="/examples/html/basic-timer">Basic Timer</a></li>
+						<li><a href="/examples/html/name-tag">Name Tag</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>JavaScript Web Components</h2>
+					<ul>
+						<li><a href="#">Hello World</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Miscellaneous</h2>
+					<ul>
+						<li><a href="#">Form Associated</a></li>
+						<li><a href="#">Custom Element Base Class</a></li>
+						<li><a href="#">With Web Frameworks</a></li>
+					</ul>
+				</section>
+			</section>
+			<p>
+				<a href="https://github.com/hawkticehurst/web-components-fyi">Source</a> |
+				<a href="">License</a> | Inspired by
+				<a href="https://examples.deno.land/">Deno by Example</a> and
+				<a href="https://gobyexample.com/">Go by Example</a>
+			</p>
+		</main>
+		<footer>
+			<p class="built-by">Made with ❤️ by <a href="https://hawkticehurst.com">Hawk Ticehurst</a></p>
+		</footer>
+	</body>
+</html>

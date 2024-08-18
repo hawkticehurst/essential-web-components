@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"checkJs": true,
+		"lib": ["ES2022", "DOM"]
+	},
+	"include": ["site/**/*.js"],
+	"exclude": ["node_modules"]
+}

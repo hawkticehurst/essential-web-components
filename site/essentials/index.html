@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/favicon.png" type="image/png" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>Essential Web Components</title>
+		<meta name="title" content="Essential Web Components" />
+		<meta name="description" content="Concise plain-speak about web components." />
+		<meta name="author" content="Hawk Ticehurst" />
+
+		<!-- Open graph meta tags -->
+		<meta property="og:title" content="Essential Web Components" />
+		<meta property="og:description" content="Concise plain-speak about web components." />
+		<meta property="og:url" content="https://webcomponents.fyi/essentials/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="https://webcomponents.fyi/_imgs/seo.png" />
+
+		<!-- Twitter meta tags -->
+		<meta property="twitter:title" content="Essential Web Components" />
+		<meta property="twitter:description" content="Concise plain-speak about web components." />
+		<meta property="twitter:url" content="https://webcomponents.fyi/essentials/" />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:image" content="https://webcomponents.fyi/_imgs/seo.png" />
+
+		<!-- Styles -->
+		<style>
+			@import url('/_styles/global.css');
+			@import url('/_styles/code.css');
+			@import url('/_components/navbar.css');
+			:root {
+				--content-width: 700px;
+			}
+			@media (max-width: 800px) {
+				:root {
+					--content-width: 80%;
+				}
+			}
+			@media (max-width: 450px) {
+				:root {
+					--content-width: 95%;
+				}
+			}
+			#homepage-container {
+				margin-top: 3rem;
+				margin-bottom: 4rem;
+			}
+			#homepage-title {
+				margin-bottom: 0;
+				font-size: 2.4rem;
+			}
+			#homepage-subtitle {
+				font-size: 1.4rem;
+			}
+			h2 {
+				font-size: 1.4rem;
+				margin-top: 4rem;
+			}
+			pre {
+				border: solid 2px var(--border-color);
+			}
+			main img {
+				max-width: 100%;
+				margin: 2rem 0;
+			}
+			main a {
+				color: #d3c7f8;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="navbar-logo" href="/">
+				<img src="/_icons/webcomponents.svg" alt="Web component logo" />
+			</a>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/essentials/">Essentials</a>
+			</nav>
+		</header>
+		<main>
+			<section id="homepage-container">
+				<h1 id="homepage-title">Essential Web Components</h1>
+				<p id="homepage-subtitle">Concise plain-speak about web components.</p>
+			</section>
+			<h2>What are web components?</h2>
+			<p>
+				"Web components" is a loose term used to reference a set of evolving browser APIs and
+				technologies that can be used to create custom HTML elements.
+			</p>
+			<p>
+				Restated more clearly: <em>Web components are HTML elements</em>. From the browsers
+				perspective, a web component is just as much an HTML element as a <code>p</code> or
+				<code>div</code> element.
+			</p>
+			<p>
+				The implications of this are extremely important. Web components do not follow the same
+				rules, conventions, and mental models of a "component" you might find in React, Svelte, or
+				Vue. Instead they follow the rules, conventions, and mental models of HTML elements.
+			</p>
+			<h2>Why is this important?</h2>
+			<p>
+				Since web components are HTML elements they represent a browser native way of creating
+				reusable UI that can be used
+				<a href="https://custom-elements-everywhere.com/">just about</a> anywhere you can write
+				HTML.
+			</p>
+			<p>
+				One of the big motivations of web components is the idea that you can build a set of UI
+				elements that can be used again and again in your projects even if the underlying web
+				framework or technology stack you use changes over time.
+			</p>
+			<section class="info-banner">
+				<p>
+					React is the one notable exception in 2024. Native support for web components is available
+					in the current @beta release, but has not yet been formally released in a stable version.
+					Despite this, there are still ways to use web components in older versions of React.
+				</p>
+			</section>
+			<h2>Will web components replace my web framework?</h2>
+			<p>No. In an ideal world they should work together.</p>
+			<p>
+				At its core, web components only provide a way of grouping reusable chunks of UI and
+				behavior. As of 2024, they provide nothing for routing, reactive data, and so on, like you
+				might find in a modern web framework.
+			</p>
+			<section class="info-banner">
+				<p>
+					If you would like to build your web components with some of these ergonomic improvements
+					you’ll want to look into web component frameworks/compilers (discussed below).
+				</p>
+			</section>
+			<h2>When should I use web components?</h2>
+			<p>The answer can vary a bit depending on who you ask.</p>
+			<p>
+				One of the most prominent use cases is to build framework independent design systems and
+				component libraries. Check out <a href="https://shoelace.style/">Shoelace</a> as a great
+				example of a very mature web component library.
+			</p>
+			<p>
+				Others like to selectively build and use web components to serve as
+				<a href="https://jasonformat.com/islands-architecture/">islands of interactivity</a> within
+				static web pages. Fun fact: Web components are so well suited to the islands architecture
+				it’s how the Astro web framework
+				<a
+					href="https://github.com/withastro/astro/blob/main/packages/astro/src/runtime/server/astro-island.ts"
+				>
+					implements their islands architecture</a
+				>.
+			</p>
+			<p>
+				And others, still, like to build their entire applications using web components. For
+				example, see
+				<a href="https://web.dev/articles/ps-on-the-web#web-components-and-lit">Photoshop</a>,
+				<a href="https://www.reddit.com">Reddit</a> (inspect code),
+				<a href="https://www.youtube.com/">YouTube</a> (inspect code),
+				<a href="https://blogs.windows.com/msedgedev/2024/05/28/an-even-faster-microsoft-edge/">
+					Microsoft Edge</a
+				>, and <a href="https://briangrinstead.com/blog/firefox-webcomponents/">Firefox</a>.
+			</p>
+			<h2>Who uses web components?</h2>
+			<p>A <em>lot</em> of people and organizations.</p>
+			<ul>
+				<li>Adobe</li>
+				<li>Amazon</li>
+				<li>Apple</li>
+				<li>Firefox</li>
+				<li>GitHub</li>
+				<li>Google</li>
+				<li>Microsoft</li>
+				<li>NASA</li>
+				<li>Reddit</li>
+				<li>Salesforce</li>
+				<li>SpaceX</li>
+				<li>Stripe</li>
+				<li>YouTube</li>
+				<li><a href="https://arewebcomponentsathingyet.com/">Even more companies/projects</a></li>
+			</ul>
+			<h2>What does a web component look like?</h2>
+			<p>
+				From the perspective of web component consumer, they look like HTML elements with some
+				special differences. Specifically, to avoid naming collisions with regular HTML elements,
+				all custom elements must follow a few rules:
+			</p>
+			<ul>
+				<li>Starts with a lowercase ASCII character</li>
+				<li>Contains at least one hyphen</li>
+				<li>Does not contain uppercase ASCII characters</li>
+				<li>
+					Does not contain some special characters as defined by
+					<a
+						href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name"
+						>the spec</a
+					>
+				</li>
+			</ul>
+			<p>For example, these would be valid web components:</p>
+			<pre glow><code>&lt;<span>my-component</span>&gt;&lt;/<span>my-component</span>&gt;
+&lt;<span>my-other-component</span>&gt;&lt;/<span>my-other-component</span>&gt;
+<span data-comment>// Even this is valid (although maybe not recommended)</span>
+&lt;<span>c-</span>&gt;&lt;/<span>c-</span>&gt;</code></pre>
+			<p>And these would be invalid web components:</p>
+			<pre glow><code>&lt;<span>MyComponent</span>&gt;&lt;/<span>MyComponent</span>&gt;
+&lt;<span>my_component</span>&gt;&lt;/<span>my_component</span>&gt;
+&lt;<span>mycomponent</span>&gt;&lt;/<span>mycomponent</span>&gt;</code></pre>
+			<section class="info-banner">
+				<p>
+					For even more information and discussion on what web components can look like, Jim Nielsen
+					has written some
+					<a href="https://blog.jim-nielsen.com/2023/validity-of-custom-element-tag-names/"
+						>great</a
+					>
+					<a href="https://blog.jim-nielsen.com/2024/custom-elements-only-need-end-with-a-hyphen/"
+						>articles</a
+					>
+					on the topic.
+				</p>
+			</section>
+			<p>
+				On the other hand, from the perspective of an author, web components look like JavaScript
+				classes that extend the native <code>HTMLElement</code> interface.
+			</p>
+			<p>
+				The <a href="https://javascript.info/custom-elements">Custom Elements API</a> is the
+				JavaScript API responsible for making this happen. It is the absolute bare minimum you need
+				to build a web component. Here's an example:
+			</p>
+			<pre
+				glow
+			><code><span>class</span> <span data-class>MyComponent</span> <span>extends</span> <span data-class>HTMLElement</span> {
+	<span>constructor</span>() {
+		<span>super</span>();
+	}
+}
+<span data-highlight>customElements</span>.<span data-fn>define</span>(<span data-string>'my-component'</span>, <span data-class>MyComponent</span>);</code></pre>
+			<p>
+				This web component renders nothing and has no functionality. But it <em>is</em> a web
+				component.
+			</p>
+			<section class="info-banner">
+				<p>
+					It's also worth mentioning the
+					<a href="https://javascript.info/shadow-dom">Shadow DOM API</a> and HTML
+					<a href="https://javascript.info/template-element"
+						><code>&lt;template&gt;</code> element</a
+					>, which are commonly used when authoring web components.
+				</p>
+				<p>
+					The Shadow DOM API is a JavaScript API that is primarily used for creating scoped styles
+					and component slots, while the <code>&lt;template&gt;</code> element is used to define and
+					store the markup of a web component.
+				</p>
+				<p>These and other web component APIs are discussed more below.</p>
+			</section>
+			<h2>How do you architect a web component?</h2>
+			<p>
+				There are two major ways of building/architecting web components. These two methods are
+				commonly referred to as “HTML Web Components” and “JavaScript Web Components.”
+			</p>
+			<p>
+				HTML Web Components are perhaps the simpler and more flexible way of building web
+				components. The core premise of HTML Web Components is to write plain HTML and then wrap the
+				parts you want to be interactive using a custom element.
+			</p>
+			<p>
+				These components only use the Custom Elements API and do not use any other APIs you might
+				find in the “web components” bucket, such as Shadow DOM or templates.
+			</p>
+			<p>They look like this:</p>
+			<pre glow><code>&lt;<span>counter-button</span>&gt;
+	&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
+&lt;/<span>counter-button</span>&gt;</code></pre>
+			<p>
+				JavaScript Web Components, on the other hand, are historically what most people would think
+				of as “regular” web components. They use a wider variety of web component APIs to create
+				components that are similar to single-page application (SPA) components.
+			</p>
+			<p>They look like this:</p>
+			<pre
+				glow
+			><code>&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
+			<p>
+				The HTML Web Component will hydrate/progressively enhance existing HTML, while the
+				JavaScript Web Component will dynamically generate UI at runtime.
+			</p>
+			<p>
+				There are benefits and drawbacks to both models, so it’s usually a case of picking the right
+				tool (read: architecture) for the right job.
+			</p>
+			<section class="info-banner">
+				<p>
+					If you want to dive deeper here are some great posts that talk more about HTML Web
+					Components and some of the differences they have with JavaScript Web Components.
+				</p>
+				<ul>
+					<li>
+						<a href="https://adactio.com/journal/20618">HTML web components</a> by Jeremy Keith
+					</li>
+					<li>
+						<a href="https://blog.jim-nielsen.com/2023/html-web-components/">HTML Web Components</a>
+						by Jim Nielsen
+					</li>
+					<li>
+						<a href="https://www.oddbird.net/2023/11/17/components/">
+							HTML Web Components are Just JavaScript?</a
+						>
+						by Miriam Eric Suzanne
+					</li>
+					<li>
+						<a href="https://gomakethings.com/html-web-components/">HTML Web Components</a> by Chris
+						Ferdinandi
+					</li>
+					<li>
+						<a href="https://hawkticehurst.com/2023/11/a-year-working-with-html-web-components/">
+							A year working with HTML Web Components
+						</a>
+						by Hawk Ticehurst
+					</li>
+				</ul>
+			</section>
+			<h2>What other APIs make up web components?</h2>
+			<p>
+				The Custom Elements, Shadow DOM, and template APIs are only three of an ever-evolving set of
+				APIs that can be used to build web components. There are several fantastic resources to
+				learn more about other web component APIs that are currently available, being worked on, and
+				proposed for the future.
+			</p>
+			<p>
+				See the
+				<a href="https://eisenbergeffect.medium.com/2023-state-of-web-components-c8feb21d4f16">
+					2023 State of Web Components
+				</a>
+				by Rob Eisenberg (a prominent contributor to the web component space). It's the most recent
+				and comprehensive overview of web component APIs.
+			</p>
+			<p>
+				Also check out the yearly reports from
+				<a href="https://github.com/w3c/webcomponents-cg/">Web Component Community Group</a>, which
+				include the web component APIs that have been proposed to browser vendors for
+				implementation.
+			</p>
+			<ul>
+				<li>
+					<a href="https://w3c.github.io/webcomponents-cg/2023.html">2023 Spec/API Status Report</a>
+				</li>
+				<li>
+					<a href="https://w3c.github.io/webcomponents-cg/2022.html">2022 Spec/API Status Report</a>
+				</li>
+				<li>
+					<a href="https://w3c.github.io/webcomponents-cg/2021.html">2021 Spec/API Status Report</a>
+				</li>
+			</ul>
+			<h2>How do new web component APIs get added?</h2>
+			<p>
+				Just like any other browser API, new web component APIs (read: features) must go through
+				their own standards process.
+			</p>
+			<p>
+				A combination of various <a href="https://github.com/w3c/webcomponents-cg/">community</a>
+				<a href="https://github.com/WICG/webcomponents">groups</a> and browser vendor teams are
+				continuously working together to propose new APIs, specify and standarize how the should
+				work, and then get them implemented across browsers.
+			</p>
+			<p>This. process. takes. time.</p>
+			<section class="info-banner">
+				<p>
+					Historical context: This is, in large part, the reason that web components, despite being
+					introduced back in the early 2010s, have taken so long to really increase in adoption. It
+					took almost a decade to get the first set of web component APIs standarized and
+					implemented across all major browsers.
+				</p>
+			</section>
+			<p>
+				Lucky for us, this process is starting to move quicker. Efforts like
+				<a href="https://web.dev/interop-2022/">Interop 2022</a> and
+				<a href="https://web.dev/blog/interop-2023">Interop 2023</a> have meant all major browser
+				vendors are working together to solve browser compatibility issues and is hinting at a new
+				reality where these vendors are committing to be better about implementing new and existing
+				APIs in a timely and consistent way.
+			</p>
+			<p>
+				Even with a quicker feedback loop, however, new web component features will (for the most
+				part) always take longer to ship than new web framework features.
+			</p>
+			<p>
+				This can often be frustrating to some people, but there is an important tradeoff being made.
+				The upfront cost of standards work means that any API added to browsers is committing to be
+				backwards compatible. Once a web component API is added, it's here to stay.
+			</p>
+			<p>
+				The end result is that
+				<a
+					href="https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/"
+					>web components should outlast entire web frameworks</a
+				>.
+			</p>
+			<h2>What are web component frameworks and should I use them?</h2>
+			<p>
+				Web component frameworks are opinionated abstractions on top of the lower level browser APIs
+				that have been mentioned above. They also usually provide enhancements such as improved
+				templating, reactive data, declarative syntax, and other general improvements to the
+				experience of building web components.
+			</p>
+			<p>You very likely want to use a web component framework when building web components.</p>
+			<p>
+				As a jumping off point, some great web component frameworks, libraries, and compilers to
+				check out are:
+			</p>
+			<ul>
+				<li><a href="https://lit.dev/">Lit</a> (by Google)</li>
+				<li><a href="https://www.fast.design/">FAST</a> (by Microsoft)</li>
+				<li>
+					<a href="https://github.com/11ty/webc">WebC</a> (by Zach Leatherman, creator of 11ty)
+				</li>
+				<li><a href="https://stenciljs.com/">Stencil</a> (by Ionic)</li>
+				<li>
+					<a href="https://hauntedhooks.netlify.app/">Haunted</a> (by Matthew Phillips, a core
+					maintainer of Astro)
+				</li>
+				<li><a href="https://github.com/lume/element">Lume Element</a> (by Joe Pea)</li>
+				<li><a href="https://github.com/hawkticehurst/stellar">Stellar</a> (by Hawk Ticehurst)</li>
+			</ul>
+			<p>
+				For an even more exhaustive list of web component frameworks/libraries check out
+				<a href="https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/"
+					>this article</a
+				>.
+			</p>
+			<p>
+				It’s also worth noting that a number of more “traditional” web frameworks (such as Svelte,
+				Solid, Preact, and Vue) have the ability to export their components as standalone web
+				components.
+			</p>
+			<p>With all that said, if you're not sure where to start, go with Lit.</p>
+			<h2>I want to learn more, where do I go from here?</h2>
+			<p>
+				Great question! Below is a list of web component blog posts and resources that are worth
+				reading. It’s organized in no particular order so feel free to skim and pick up one that
+				looks interesting.
+			</p>
+			<ul>
+				<li>
+					<a href="https://javascript.info/web-components"
+						>JavaScript.info Web Component Articles</a
+					>
+					by Ilya Kantor
+				</li>
+				<li>
+					<a
+						href="https://eisenbergeffect.medium.com/debunking-web-component-myths-and-misconceptions-ea9bb13daf61"
+						>Debunking Web Component Myths and Misconceptions</a
+					>
+					by Rob Eisenberg
+				</li>
+				<li>
+					<a href="https://eisenbergeffect.medium.com/about-web-components-7b2a3ed67a78"
+						>About Web Components</a
+					>
+					by Rob Eisenberg
+				</li>
+				<li>
+					<a
+						href="https://jakelazaroff.com/words/web-components-eliminate-javascript-framework-lock-in/"
+						>Web Components Eliminate JavaScript Framework Lock-in</a
+					>
+					by Jake Lazaroff
+				</li>
+				<li>
+					<a href="https://webcomponents.today/">Web Components Bookmarks</a> by Serhii Kulykov
+				</li>
+				<li>
+					<a href="https://htmlwithsuperpowers.netlify.app/">HTML with Superpowers</a> by Dave
+					Rupert
+				</li>
+				<li>
+					<a href="https://www.abeautifulsite.net/posts/a-web-components-primer/"
+						>A Web Components Primer</a
+					>
+					by Cory LaViska
+				</li>
+				<li>
+					<a href="https://blog.jim-nielsen.com/2023/web-components-icon-galleries/"
+						>Using Web Components on My Icon Galleries Websites</a
+					>
+					by Jim Nielsen
+				</li>
+				<li>
+					<a href="https://github.blog/2021-05-04-how-we-use-web-components-at-github/"
+						>How we use Web Components at GitHub</a
+					>
+					by Kristján Oddsson
+				</li>
+				<li>
+					<a href="https://hawkticehurst.com/2023/12/let-it-snow/"
+						>An Interactive Introduction to Web Components</a
+					>
+					by Hawk Ticehurst
+				</li>
+			</ul>
+		</main>
+		<footer>
+			<p class="credits">
+				<a href="https://github.com/hawkticehurst/essential-web-components">Source</a> |
+				<a href="https://github.com/hawkticehurst/essential-web-components">License</a> | Inspired
+				by
+				<a href="https://jlord.us/essential-electron/">Essential Electron</a>
+			</p>
+			<p class="built-by">Made with ❤️ by <a href="https://hawkticehurst.com">Hawk Ticehurst</a></p>
+		</footer>
+	</body>
+</html>
