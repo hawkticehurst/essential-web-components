@@ -37,6 +37,9 @@
 			:root {
 				--content-width: 1000px;
 			}
+			body {
+				overflow-x: hidden;
+			}
 			.hero-container {
 				height: 80vh;
 				display: flex;
@@ -86,6 +89,45 @@
 				gap: 20px;
 				width: 100%;
 			}
+			.showcase-grid {
+				margin: 3rem 0;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 40px;
+				width: 150%;
+			}
+			.showcase-grid a {
+				position: relative;
+				border-radius: 4px;
+			}
+			.showcase-grid a:hover {
+				background-color: rgb(55, 55, 55);
+				width: fit-content;
+				height: fit-content;
+			}
+			.showcase-grid a:focus-visible {
+				height: fit-content;
+				width: fit-content;
+			}
+			.showcase-grid a:hover img {
+				opacity: 0.5;
+				transition: ease 0.1s;
+			}
+			.showcase-grid a:hover::after {
+				content: attr(data-text);
+				font-weight: 500;
+				font-size: 0.9rem;
+				position: absolute;
+				background-color: #181818d5;
+				border-radius: 50px;
+				padding: 2px 16px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.showcase-grid img {
+				border-radius: 4px;
+			}
 			@media (max-width: 999px) {
 				:root {
 					--content-width: 90%;
@@ -100,6 +142,9 @@
 				}
 				.swimlane-subtitle {
 					width: 100%;
+				}
+				.showcase-grid {
+					gap: 20px;
 				}
 			}
 			@media (max-width: 450px) {
@@ -117,6 +162,9 @@
 				}
 				.swimlane-subtitle {
 					width: 100%;
+				}
+				.showcase-grid {
+					gap: 20px;
 				}
 			}
 		</style>
@@ -161,7 +209,7 @@
 					<!-- <span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>); -->
 					<!-- <span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>); -->
 					<div class="component-editor">
-						<pre glow><code>&lt;<span>counter-button</span>&gt;
+						<pre styled><code>&lt;<span>counter-button</span>&gt;
 	&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span class="code-snippet-count" data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
 &lt;/<span>counter-button</span>&gt;
 
@@ -215,7 +263,7 @@
 								HTML
 							</p>
 							<div class="code-editor">
-								<pre glow><code>&lt;!<span>DOCTYPE</span> <span data-highlight>html</span>&gt;
+								<pre styled><code>&lt;!<span>DOCTYPE</span> <span data-highlight>html</span>&gt;
 &lt;<span>html</span> <span data-highlight>lang</span>=<span data-string>"en"</span>&gt;
 	&lt;<span>head</span>&gt;
 		&lt;<span>title</span>&gt;Hello Web Components!&lt;/<span>title</span>&gt;
@@ -234,7 +282,7 @@
 							</p>
 							<div class="code-editor">
 								<pre
-									glow
+									styled
 								><code>&lt;<span>script</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
 	<span data-import>import</span> <span data-string>'./counter-button'</span>;
 &lt;<span>script</span>&gt;
@@ -251,7 +299,7 @@
 							</p>
 							<div class="code-editor">
 								<pre
-									glow
+									styled
 								><code>&lt;<span>script</span> <span data-highlight>setup</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
 <span data-import>import</span> <span data-string>'./counter-button'</span>;
 &lt;<span>script</span>&gt;
@@ -270,7 +318,7 @@
 							</p>
 							<div class="code-editor">
 								<pre
-									glow
+									styled
 								><code><span data-import>import</span> <span data-highlight>React</span> <span data-import>from</span> <span data-string>"react"</span>;
 <span data-import>import</span> <span data-string>'./counter-button'</span>;
 
@@ -289,10 +337,10 @@
 								Markdown
 							</p>
 							<div class="code-editor">
-								<pre glow><code># No MDX Needed!
+								<pre styled><code># No MDX Needed!
 
-Just like HTML, web components can be used
-right inside markdown files.
+Web components can be used right inside
+markdown files.
 
 &lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
 							</div>
@@ -303,7 +351,7 @@ right inside markdown files.
 								Astro
 							</p>
 							<div class="code-editor">
-								<pre glow><code>&lt;<span>main</span>&gt;
+								<pre styled><code>&lt;<span>main</span>&gt;
 	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
 &lt;/<span>main</span>&gt;
 
@@ -317,7 +365,7 @@ right inside markdown files.
 							</p>
 							<div class="code-editor">
 								<pre
-									glow
+									styled
 								><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
 
 <span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
@@ -336,7 +384,7 @@ right inside markdown files.
 							</p>
 							<div class="code-editor">
 								<pre
-									glow
+									styled
 								><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
 
 <span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
@@ -354,7 +402,7 @@ right inside markdown files.
 								Angular
 							</p>
 							<div class="code-editor">
-								<pre glow><code>&lt;<span>main</span>&gt;
+								<pre styled><code>&lt;<span>main</span>&gt;
 	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
 &lt;/<span>main</span>&gt;</code></pre>
 							</div>
@@ -368,20 +416,27 @@ right inside markdown files.
 					From tiny tasks to enterprise applications.. from today, to the future, and beyond.. web
 					components are a component model to last for the ages.
 				</p>
-				<Grid rows="2" columns="2" withHeroCard="true">
-					<Card
-						title="A component model that will last"
-						content="Web components come with stability and backward compatibility guarantees of the web itself. The idea is that the components you write today will outlast entire web frameworks."
-					/>
-					<Card
-						title="A sprinkle of interactivity to full blown apps"
-						content="Whether it's a simple counter button or rewriting Reddit, web components can scale with you and your needs."
-					/>
-					<Card
-						title="Another interesting title"
-						content="Something else about web components that's worth noting."
-					/>
-				</Grid>
+				<a class="link-button" href="/essentials/">Learn more</a>
+				<section class="showcase-grid">
+					<a href="https://youtube.com" data-text="YouTube">
+						<img src="/_imgs/youtube.png" alt="YouTube homepage" />
+					</a>
+					<a href="https://web.dev/articles/ps-on-the-web#web-components-and-lit" data-text="Photoshop">
+						<img src="/_imgs/photoshop.png" alt="Photoshop for the web" />
+					</a>
+					<a href="https://reddit.com" data-text="Reddit">
+						<img src="/_imgs/reddit.png" alt="Reddit page" />
+					</a>
+					<a href="https://modelviewer.dev/" data-text="Model viewer">
+						<img src="/_imgs/model-viewer.png" alt="3D model viewer web component" />
+					</a>
+					<a href="https://iamkulykov.com/vanilla-colorful/" data-text="Vanilla colorful">
+						<img src="/_imgs/vanilla-colorful.png" alt="Color picker web component" />
+					</a>
+					<a href="https://nolanlawson.github.io/emoji-picker-element/" data-text="Emoji picker">
+						<img src="/_imgs/emoji-picker.png" alt="Emoji picker web component" />
+					</a>
+				</section>
 			</section>
 		</main>
 		<footer>

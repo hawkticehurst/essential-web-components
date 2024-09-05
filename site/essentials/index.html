@@ -195,12 +195,12 @@
 				</li>
 			</ul>
 			<p>For example, these would be valid web components:</p>
-			<pre glow><code>&lt;<span>my-component</span>&gt;&lt;/<span>my-component</span>&gt;
+			<pre styled><code>&lt;<span>my-component</span>&gt;&lt;/<span>my-component</span>&gt;
 &lt;<span>my-other-component</span>&gt;&lt;/<span>my-other-component</span>&gt;
 <span data-comment>// Even this is valid (although maybe not recommended)</span>
 &lt;<span>c-</span>&gt;&lt;/<span>c-</span>&gt;</code></pre>
 			<p>And these would be invalid web components:</p>
-			<pre glow><code>&lt;<span>MyComponent</span>&gt;&lt;/<span>MyComponent</span>&gt;
+			<pre styled><code>&lt;<span>MyComponent</span>&gt;&lt;/<span>MyComponent</span>&gt;
 &lt;<span>my_component</span>&gt;&lt;/<span>my_component</span>&gt;
 &lt;<span>mycomponent</span>&gt;&lt;/<span>mycomponent</span>&gt;</code></pre>
 			<section class="info-banner">
@@ -226,7 +226,7 @@
 				to build a web component. Here's an example:
 			</p>
 			<pre
-				glow
+				styled
 			><code><span>class</span> <span data-class>MyComponent</span> <span>extends</span> <span data-class>HTMLElement</span> {
 	<span>constructor</span>() {
 		<span>super</span>();
@@ -267,7 +267,7 @@
 				find in the “web components” bucket, such as Shadow DOM or templates.
 			</p>
 			<p>They look like this:</p>
-			<pre glow><code>&lt;<span>counter-button</span>&gt;
+			<pre styled><code>&lt;<span>counter-button</span>&gt;
 	&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
 &lt;/<span>counter-button</span>&gt;</code></pre>
 			<p>
@@ -277,7 +277,7 @@
 			</p>
 			<p>They look like this:</p>
 			<pre
-				glow
+				styled
 			><code>&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
 			<p>
 				The HTML Web Component will hydrate/progressively enhance existing HTML, while the
@@ -471,6 +471,12 @@
 				<li>
 					<a href="https://htmlwithsuperpowers.netlify.app/">HTML with Superpowers</a> by Dave
 					Rupert
+				</li>
+				<li>
+					<a href="https://github.com/davatron5000/awesome-standalones"
+						>Awesome Standalone Web Components</a
+					>
+					by Dave Rupert
 				</li>
 				<li>
 					<a href="https://www.abeautifulsite.net/posts/a-web-components-primer/"
