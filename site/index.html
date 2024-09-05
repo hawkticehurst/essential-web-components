@@ -37,11 +37,15 @@
 			:root {
 				--content-width: 1000px;
 			}
-			body {
+			.overflow {
 				overflow-x: hidden;
+				width: 100%;
+			}
+			main {
+				padding: 0;
 			}
 			.hero-container {
-				height: 80vh;
+				height: 80svh;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -138,7 +142,7 @@
 					--content-width: 90%;
 				}
 				.hero-container {
-					height: 70vh;
+					height: 60vh;
 				}
 				.swimlane-subtitle {
 					width: 100%;
@@ -152,10 +156,10 @@
 					--content-width: 90%;
 				}
 				.hero-container {
-					height: 70vh;
+					height: 60vh;
 				}
 				.hero-container h1 {
-					margin: 2rem 0 0 0;
+					margin: 4rem 0 0 0;
 				}
 				.swimlane-title {
 					font-size: 1.8rem;
@@ -165,6 +169,7 @@
 				}
 				.showcase-grid {
 					gap: 20px;
+					grid-template-columns: repeat(2, 1fr);
 				}
 			}
 		</style>
@@ -179,266 +184,271 @@
 				<a href="/essentials/">Essentials</a>
 			</nav>
 		</header>
-		<main>
-			<section class="hero-container">
-				<h1>Web Components</h1>
-				<p class="subtitle">The browser native way of building resuable user interfaces</p>
-				<a class="link-button" href="/essentials/">Learn more</a>
-			</section>
-			<section class="trusted-by-container">
-				<p>Used by:</p>
-				<div class="logo-container">
-					<img src="/_icons/google.svg" alt="Google logo" />
-					<img src="/_icons/github.svg" alt="GitHub logo" />
-					<img src="/_icons/microsoft.svg" alt="Microsoft logo" />
-					<img src="/_icons/stripe.svg" alt="Stripe logo" />
-					<img src="/_icons/adobe.svg" alt="Adobe logo" />
-					<img src="/_icons/amazon.svg" alt="Amazon logo" />
-				</div>
-			</section>
-			<section class="swimlane">
-				<h2 class="swimlane-title">Components, without the framework</h2>
-				<p class="swimlane-subtitle">
-					Web components are a component model built using Web Browser APIs. There's no NPM package
-					to install, no runtime to ship, no compilation to wait for. It's just regular ol' HTML and
-					JavaScript all the way down.
-				</p>
-				<div class="component-viewer counter-preview">
-					<!-- &lt;<span>template</span> <span data-highlight>shadowrootmode</span>=<span data-string>"open"</span>&gt;
-	&lt;/<span>template</span>&gt; -->
-					<!-- <span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>); -->
-					<!-- <span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>); -->
-					<div class="component-editor">
-						<pre styled><code>&lt;<span>counter-button</span>&gt;
-	&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span class="code-snippet-count" data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
-&lt;/<span>counter-button</span>&gt;
-
-&lt;<span>script</span>&gt;
-	<span>class</span> <span data-class>CounterButton</span> <span>extends</span> <span data-class>HTMLElement</span> {
-		<span>constructor</span>() {
-			<span>super</span>();
-			<span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>);
-			<span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>);
-			<span>this</span>.<span data-highlight>button</span>.<span data-fn>addEventListener</span>(<span data-string>'click'</span>, <span>this</span>.<span data-highlight>increment</span>.<span data-fn>bind</span>(<span>this</span>));
-		}
-		<span data-fn>increment</span>() {
-			<span>const</span> <span data-highlight>count</span> = <span data-fn>parseInt</span>(<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span>);
-			<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span> = <span data-string>`</span><span>${</span><span data-highlight>count</span> + 1<span>}</span><span data-string>`</span>;
-		}
-	}
-	<span data-highlight>customElements</span>.<span data-fn>define</span>(<span data-string>'counter-button'</span>, <span data-class>CounterButton</span>);
-&lt;/<span>script</span>&gt;
-
-&lt;<span>style</span>&gt;
-	<span data-selector>counter-button > button</span> {
-		<span data-highlight>font</span>: <span data-string>inherit</span>;
-		<span data-highlight>color</span>: <span data-string>var(--foreground-color)</span>;
-		<span data-highlight>background</span>: <span data-string>var(--background-color)</span>;
-		<span data-highlight>padding</span>: <span data-string>8px 16px</span>;
-		<span data-highlight>border-radius</span>: <span data-string>10px</span>;
-	}
-&lt;/<span>style</span>&gt;</code></pre>
+		<div class="overflow">
+			<main>
+				<section class="hero-container">
+					<h1>Web Components</h1>
+					<p class="subtitle">The browser native way of building resuable user interfaces</p>
+					<a class="link-button" href="/essentials/">Learn more</a>
+				</section>
+				<section class="trusted-by-container">
+					<p>Used by:</p>
+					<div class="logo-container">
+						<img src="/_icons/google.svg" alt="Google logo" />
+						<img src="/_icons/github.svg" alt="GitHub logo" />
+						<img src="/_icons/microsoft.svg" alt="Microsoft logo" />
+						<img src="/_icons/stripe.svg" alt="Stripe logo" />
+						<img src="/_icons/adobe.svg" alt="Adobe logo" />
+						<img src="/_icons/amazon.svg" alt="Amazon logo" />
 					</div>
-					<div class="component-view">
-						<counter-button>
-							<button>Clicked <span class="count">0</span> times</button>
-						</counter-button>
+				</section>
+				<section class="swimlane">
+					<h2 class="swimlane-title">Components, without the framework</h2>
+					<p class="swimlane-subtitle">
+						Web components are a component model built using Web Browser APIs. There's no NPM
+						package to install, no runtime to ship, no compilation to wait for. It's just regular
+						ol' HTML and JavaScript all the way down.
+					</p>
+					<div class="component-viewer counter-preview">
+						<!-- &lt;<span>template</span> <span data-highlight>shadowrootmode</span>=<span data-string>"open"</span>&gt;
+		&lt;/<span>template</span>&gt; -->
+						<!-- <span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>); -->
+						<!-- <span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>); -->
+						<div class="component-editor">
+							<pre styled><code>&lt;<span>counter-button</span>&gt;
+		&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span class="code-snippet-count" data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
+	&lt;/<span>counter-button</span>&gt;
+	
+	&lt;<span>script</span>&gt;
+		<span>class</span> <span data-class>CounterButton</span> <span>extends</span> <span data-class>HTMLElement</span> {
+			<span>constructor</span>() {
+				<span>super</span>();
+				<span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>);
+				<span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>);
+				<span>this</span>.<span data-highlight>button</span>.<span data-fn>addEventListener</span>(<span data-string>'click'</span>, <span>this</span>.<span data-highlight>increment</span>.<span data-fn>bind</span>(<span>this</span>));
+			}
+			<span data-fn>increment</span>() {
+				<span>const</span> <span data-highlight>count</span> = <span data-fn>parseInt</span>(<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span>);
+				<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span> = <span data-string>`</span><span>${</span><span data-highlight>count</span> + 1<span>}</span><span data-string>`</span>;
+			}
+		}
+		<span data-highlight>customElements</span>.<span data-fn>define</span>(<span data-string>'counter-button'</span>, <span data-class>CounterButton</span>);
+	&lt;/<span>script</span>&gt;
+	
+	&lt;<span>style</span>&gt;
+		<span data-selector>counter-button > button</span> {
+			<span data-highlight>font</span>: <span data-string>inherit</span>;
+			<span data-highlight>color</span>: <span data-string>var(--foreground-color)</span>;
+			<span data-highlight>background</span>: <span data-string>var(--background-color)</span>;
+			<span data-highlight>padding</span>: <span data-string>8px 16px</span>;
+			<span data-highlight>border-radius</span>: <span data-string>10px</span>;
+		}
+	&lt;/<span>style</span>&gt;</code></pre>
+						</div>
+						<div class="component-view">
+							<counter-button>
+								<button>Clicked <span class="count">0</span> times</button>
+							</counter-button>
+						</div>
 					</div>
-				</div>
-			</section>
-			<section class="swimlane">
-				<h2 class="swimlane-title">Components you can use anywhere</h2>
-				<p class="swimlane-subtitle">
-					Web components are <span class="italic">literally</span> HTML. From the browser's
-					perspective, a <code>&lt;counter-button&gt;</code> is just as much an HTML element as a
-					<code>&lt;div&gt;</code>. This means you can use web components
-					<a href="https://custom-elements-everywhere.com/">just about</a> anywhere that you can use
-					HTML.
-				</p>
-				<section class="scroll-container">
-					<div class="framework-examples">
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/html.svg" alt="HTML logo" />
-								HTML
-							</p>
-							<div class="code-editor">
-								<pre styled><code>&lt;!<span>DOCTYPE</span> <span data-highlight>html</span>&gt;
-&lt;<span>html</span> <span data-highlight>lang</span>=<span data-string>"en"</span>&gt;
-	&lt;<span>head</span>&gt;
-		&lt;<span>title</span>&gt;Hello Web Components!&lt;/<span>title</span>&gt;
-	&lt;/<span>head</span>&gt;
-	&lt;<span>body</span>&gt;
-		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-		&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;
-	&lt;/<span>body</span>&gt;
-&lt;/<span>html</span>&gt;</code></pre>
+				</section>
+				<section class="swimlane">
+					<h2 class="swimlane-title">Components you can use anywhere</h2>
+					<p class="swimlane-subtitle">
+						Web components are <span class="italic">literally</span> HTML. From the browser's
+						perspective, a <code>&lt;counter-button&gt;</code> is just as much an HTML element as a
+						<code>&lt;div&gt;</code>. This means you can use web components
+						<a href="https://custom-elements-everywhere.com/">just about</a> anywhere that you can
+						use HTML.
+					</p>
+					<section class="scroll-container">
+						<div class="framework-examples">
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/html.svg" alt="HTML logo" />
+									HTML
+								</p>
+								<div class="code-editor">
+									<pre styled><code>&lt;!<span>DOCTYPE</span> <span data-highlight>html</span>&gt;
+	&lt;<span>html</span> <span data-highlight>lang</span>=<span data-string>"en"</span>&gt;
+		&lt;<span>head</span>&gt;
+			&lt;<span>title</span>&gt;Hello Web Components!&lt;/<span>title</span>&gt;
+		&lt;/<span>head</span>&gt;
+		&lt;<span>body</span>&gt;
+			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+			&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;
+		&lt;/<span>body</span>&gt;
+	&lt;/<span>html</span>&gt;</code></pre>
+								</div>
 							</div>
-						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/svelte.svg" alt="Svelte logo" />
-								Svelte
-							</p>
-							<div class="code-editor">
-								<pre
-									styled
-								><code>&lt;<span>script</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
-	<span data-import>import</span> <span data-string>'./counter-button'</span>;
-&lt;<span>script</span>&gt;
-
-&lt;<span>main</span>&gt;
-	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-&lt;/<span>main</span>&gt;</code></pre>
-							</div>
-						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/vue.svg" alt="Vue logo" />
-								Vue
-							</p>
-							<div class="code-editor">
-								<pre
-									styled
-								><code>&lt;<span>script</span> <span data-highlight>setup</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
-<span data-import>import</span> <span data-string>'./counter-button'</span>;
-&lt;<span>script</span>&gt;
-
-&lt;<span>template</span>&gt;
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/svelte.svg" alt="Svelte logo" />
+									Svelte
+								</p>
+								<div class="code-editor">
+									<pre
+										styled
+									><code>&lt;<span>script</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
+		<span data-import>import</span> <span data-string>'./counter-button'</span>;
+	&lt;<span>script</span>&gt;
+	
 	&lt;<span>main</span>&gt;
 		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+	&lt;/<span>main</span>&gt;</code></pre>
+								</div>
+							</div>
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/vue.svg" alt="Vue logo" />
+									Vue
+								</p>
+								<div class="code-editor">
+									<pre
+										styled
+									><code>&lt;<span>script</span> <span data-highlight>setup</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
+	<span data-import>import</span> <span data-string>'./counter-button'</span>;
+	&lt;<span>script</span>&gt;
+	
+	&lt;<span>template</span>&gt;
+		&lt;<span>main</span>&gt;
+			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+		&lt;/<span>main</span>&gt;
+	&lt;/<span>template</span>&gt;</code></pre>
+								</div>
+							</div>
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/react.svg" alt="React logo" />
+									React (beta)
+								</p>
+								<div class="code-editor">
+									<pre
+										styled
+									><code><span data-import>import</span> <span data-highlight>React</span> <span data-import>from</span> <span data-string>"react"</span>;
+	<span data-import>import</span> <span data-string>'./counter-button'</span>;
+	
+	<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
+		<span data-import>return</span> (
+			&lt;<span>main</span>&gt;
+				&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+			&lt;/<span>main</span>&gt;
+		);
+	}</code></pre>
+								</div>
+							</div>
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/markdown.svg" alt="Markdown logo" />
+									Markdown
+								</p>
+								<div class="code-editor">
+									<pre styled><code># No MDX Needed!
+	
+	Web components can be used right inside
+	markdown files.
+	
+	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
+								</div>
+							</div>
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/astro.svg" alt="Astro logo" />
+									Astro
+								</p>
+								<div class="code-editor">
+									<pre styled><code>&lt;<span>main</span>&gt;
+		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
 	&lt;/<span>main</span>&gt;
-&lt;/<span>template</span>&gt;</code></pre>
+	
+	&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;</code></pre>
+								</div>
+							</div>
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/preact.svg" alt="Preact logo" />
+									Preact
+								</p>
+								<div class="code-editor">
+									<pre
+										styled
+									><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
+	
+	<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
+		<span data-import>return</span> (
+			&lt;<span>main</span>&gt;
+				&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+			&lt;/<span>main</span>&gt;
+		);
+	}</code></pre>
+								</div>
+							</div>
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/solid.svg" alt="Solid logo" />
+									Solid
+								</p>
+								<div class="code-editor">
+									<pre
+										styled
+									><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
+	
+	<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
+		<span data-import>return</span> (
+			&lt;<span>main</span>&gt;
+				&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+			&lt;/<span>main</span>&gt;
+		);
+	}</code></pre>
+								</div>
+							</div>
+							<div class="code-display">
+								<p class="title">
+									<img src="/_icons/angular.svg" alt="Angular logo" />
+									Angular
+								</p>
+								<div class="code-editor">
+									<pre styled><code>&lt;<span>main</span>&gt;
+		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+	&lt;/<span>main</span>&gt;</code></pre>
+								</div>
 							</div>
 						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/react.svg" alt="React logo" />
-								React (beta)
-							</p>
-							<div class="code-editor">
-								<pre
-									styled
-								><code><span data-import>import</span> <span data-highlight>React</span> <span data-import>from</span> <span data-string>"react"</span>;
-<span data-import>import</span> <span data-string>'./counter-button'</span>;
-
-<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
-	<span data-import>return</span> (
-		&lt;<span>main</span>&gt;
-			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-		&lt;/<span>main</span>&gt;
-	);
-}</code></pre>
-							</div>
-						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/markdown.svg" alt="Markdown logo" />
-								Markdown
-							</p>
-							<div class="code-editor">
-								<pre styled><code># No MDX Needed!
-
-Web components can be used right inside
-markdown files.
-
-&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
-							</div>
-						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/astro.svg" alt="Astro logo" />
-								Astro
-							</p>
-							<div class="code-editor">
-								<pre styled><code>&lt;<span>main</span>&gt;
-	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-&lt;/<span>main</span>&gt;
-
-&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;</code></pre>
-							</div>
-						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/preact.svg" alt="Preact logo" />
-								Preact
-							</p>
-							<div class="code-editor">
-								<pre
-									styled
-								><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
-
-<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
-	<span data-import>return</span> (
-		&lt;<span>main</span>&gt;
-			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-		&lt;/<span>main</span>&gt;
-	);
-}</code></pre>
-							</div>
-						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/solid.svg" alt="Solid logo" />
-								Solid
-							</p>
-							<div class="code-editor">
-								<pre
-									styled
-								><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
-
-<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
-	<span data-import>return</span> (
-		&lt;<span>main</span>&gt;
-			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-		&lt;/<span>main</span>&gt;
-	);
-}</code></pre>
-							</div>
-						</div>
-						<div class="code-display">
-							<p class="title">
-								<img src="/_icons/angular.svg" alt="Angular logo" />
-								Angular
-							</p>
-							<div class="code-editor">
-								<pre styled><code>&lt;<span>main</span>&gt;
-	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-&lt;/<span>main</span>&gt;</code></pre>
-							</div>
-						</div>
-					</div>
+					</section>
 				</section>
-			</section>
-			<section class="swimlane">
-				<h2 class="swimlane-title">Components for the ages</h2>
-				<p class="swimlane-subtitle">
-					From tiny tasks to enterprise applications.. from today, to the future, and beyond.. web
-					components are a component model to last for the ages.
-				</p>
-				<a class="link-button" href="/essentials/">Learn more</a>
-				<section class="showcase-grid">
-					<a href="https://youtube.com" data-text="YouTube">
-						<img src="/_imgs/youtube.png" alt="YouTube homepage" />
-					</a>
-					<a href="https://web.dev/articles/ps-on-the-web#web-components-and-lit" data-text="Photoshop">
-						<img src="/_imgs/photoshop.png" alt="Photoshop for the web" />
-					</a>
-					<a href="https://reddit.com" data-text="Reddit">
-						<img src="/_imgs/reddit.png" alt="Reddit page" />
-					</a>
-					<a href="https://modelviewer.dev/" data-text="Model viewer">
-						<img src="/_imgs/model-viewer.png" alt="3D model viewer web component" />
-					</a>
-					<a href="https://iamkulykov.com/vanilla-colorful/" data-text="Vanilla colorful">
-						<img src="/_imgs/vanilla-colorful.png" alt="Color picker web component" />
-					</a>
-					<a href="https://nolanlawson.github.io/emoji-picker-element/" data-text="Emoji picker">
-						<img src="/_imgs/emoji-picker.png" alt="Emoji picker web component" />
-					</a>
+				<section class="swimlane">
+					<h2 class="swimlane-title">Components for the ages</h2>
+					<p class="swimlane-subtitle">
+						From tiny tasks to enterprise applications.. from today, to the future, and beyond.. web
+						components are a component model to last for the ages.
+					</p>
+					<a class="link-button" href="/essentials/">Learn more</a>
+					<section class="showcase-grid">
+						<a href="https://youtube.com" data-text="YouTube">
+							<img src="/_imgs/youtube.png" alt="YouTube homepage" />
+						</a>
+						<a
+							href="https://web.dev/articles/ps-on-the-web#web-components-and-lit"
+							data-text="Photoshop"
+						>
+							<img src="/_imgs/photoshop.png" alt="Photoshop for the web" />
+						</a>
+						<a href="https://reddit.com" data-text="Reddit">
+							<img src="/_imgs/reddit.png" alt="Reddit page" />
+						</a>
+						<a href="https://modelviewer.dev/" data-text="Model viewer">
+							<img src="/_imgs/model-viewer.png" alt="3D model viewer web component" />
+						</a>
+						<a href="https://iamkulykov.com/vanilla-colorful/" data-text="Vanilla colorful">
+							<img src="/_imgs/vanilla-colorful.png" alt="Color picker web component" />
+						</a>
+						<a href="https://nolanlawson.github.io/emoji-picker-element/" data-text="Emoji picker">
+							<img src="/_imgs/emoji-picker.png" alt="Emoji picker web component" />
+						</a>
+					</section>
 				</section>
-			</section>
-		</main>
+			</main>
+		</div>
 		<footer>
 			<p class="built-by">Made with ❤️ by <a href="https://hawkticehurst.com">Hawk Ticehurst</a></p>
 		</footer>
