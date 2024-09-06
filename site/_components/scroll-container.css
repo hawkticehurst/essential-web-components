@@ -2,7 +2,7 @@
 	gap: var(--gap);
 	width: 100vw !important;
 	overflow: scroll;
-	padding: 0 2rem;
+	padding: 0;
 }
 @media (max-width: 768px) {
 	.scroll-container {

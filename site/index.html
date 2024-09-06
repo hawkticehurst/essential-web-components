@@ -91,8 +91,7 @@
 				align-items: center;
 				width: 3750px !important;
 				gap: 20px;
-				width: 100%;
-				padding-right: 2rem;
+				padding: 0 2rem;
 			}
 			.showcase-grid {
 				margin: 3rem 0;
@@ -123,15 +122,17 @@
 			.showcase-grid a span {
 				font-weight: 500;
 				font-size: 0.9rem;
-				position: absolute;
 				background-color: #181818d5;
 				border-radius: 50px;
+				/* width: 100%; */
 				padding: 2px 16px;
+				opacity: 0;
+				transition: opacity 0.2s ease;
+				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				opacity: 0;
-				transition: opacity 0.2s ease;
+				text-align: center;
 			}
 			.showcase-grid a:hover span {
 				opacity: 1;
@@ -215,13 +216,9 @@
 					<p class="swimlane-subtitle">
 						Web components are a component model built using Web Browser APIs. There's no NPM
 						package to install, no runtime to ship, no compilation to wait for. It's just regular
-						ol' HTML and JavaScript all the way down.
+						HTML and JavaScript all the way down.
 					</p>
 					<div class="component-viewer counter-preview">
-						<!-- &lt;<span>template</span> <span data-highlight>shadowrootmode</span>=<span data-string>"open"</span>&gt;
-		&lt;/<span>template</span>&gt; -->
-						<!-- <span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>); -->
-						<!-- <span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>); -->
 						<div class="component-editor">
 							<pre styled><code>&lt;<span>counter-button</span>&gt;
 	&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span class="code-snippet-count" data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
@@ -263,8 +260,8 @@
 				<section class="swimlane">
 					<h2 class="swimlane-title">Components you can use anywhere</h2>
 					<p class="swimlane-subtitle">
-						Web components are <span class="italic">literally</span> HTML. From the browser's
-						perspective, a <code>&lt;counter-button&gt;</code> is just as much an HTML element as a
+						Web components are literally HTML. From the browser's perspective, a
+						<code>&lt;counter-button&gt;</code> is just as much an HTML element as a
 						<code>&lt;div&gt;</code>. This means you can use web components
 						<a href="https://custom-elements-everywhere.com/">just about</a> anywhere that you can
 						use HTML.
@@ -434,7 +431,7 @@ markdown files.
 							<img src="/_imgs/reddit.png" alt="Reddit page" />
 						</a>
 						<a href="https://iamkulykov.com/vanilla-colorful/">
-							<span>Vanilla colorful</span>
+							<span>Color picker</span>
 							<img src="/_imgs/vanilla-colorful.png" alt="Color picker web component" />
 						</a>
 						<a href="https://modelviewer.dev/">

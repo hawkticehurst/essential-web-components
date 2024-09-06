@@ -1,42 +1,39 @@
 [styled] {
-	counter-reset: line-counter 0;
 	font-family: var(--code-font);
 	line-height: 1.1;
-	* {
-		font-weight: 400;
-		font-style: inherit;
-		text-decoration: inherit;
-	}
-	code,
-	[data-base] {
-		color: #c6c6c6;
-	}
-	span,
-	[data-accent] {
-		color: #569cd6;
-	}
-	[data-highlight] {
-		color: #9cdcfe;
-	}
-	[data-selector] {
-		color: #d7ba7d;
-	}
-	[data-string] {
-		color: #ce9178;
-	}
-	[data-import] {
-		color: #c586c0;
-	}
-	[data-fn] {
-		color: #dcdcaa;
-	}
-	[data-class] {
-		color: #4ec9b0;
-	}
-	[data-comment] {
-		color: #6f7a7d;
-		font-size: inherit;
-		vertical-align: inherit;
-		font-style: italic;
-	}
+	font-weight: 400;
+	font-style: inherit;
+	text-decoration: inherit;
+}
+code,
+[data-base] {
+	color: var(--code-block-foreground);
+}
+pre span,
+[data-accent] {
+	color: #569cd6;
+}
+[data-highlight] {
+	color: #9cdcfe;
+}
+[data-selector] {
+	color: #d7ba7d;
+}
+[data-string] {
+	color: #ce9178;
+}
+[data-import] {
+	color: #c586c0;
+}
+[data-fn] {
+	color: #dcdcaa;
+}
+[data-class] {
+	color: #4ec9b0;
+}
+[data-comment] {
+	color: #6f7a7d;
+	font-size: inherit;
+	vertical-align: inherit;
+	font-style: italic;
 }

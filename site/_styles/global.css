@@ -43,7 +43,8 @@
 :root {
 	color-scheme: dark;
 	--body-font: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, source-sans-pro, sans-serif;
-	--code-font: ui-monospace, 'SF Pro Mono', 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
+	--code-font: 'Monaspace Neon', ui-monospace, 'SF Pro Mono', 'Cascadia Code', 'Source Code Pro',
+		Consolas, monospace;
 	--content-width: 600px;
 	--page-top: 2rem;
 	--corner-radius: 8px;
@@ -55,7 +56,7 @@
 	--accent-color: rgb(21, 21, 21);
 	--accent-color-hover: rgb(30, 30, 30);
 	--border-color: rgb(47, 47, 47);
-	--code-block-foreground: rgb(235, 87, 87);
+	--code-block-foreground: #c6c6c6;
 	--code-block-background: #181818;
 	--selection-foreground: rgb(201, 229, 249);
 	--selection-background: rgb(57, 4, 203);
