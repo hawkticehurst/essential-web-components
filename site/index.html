@@ -89,7 +89,7 @@
 				display: flex;
 				flex-flow: row nowrap;
 				align-items: center;
-				width: 3700px !important;
+				width: 3750px !important;
 				gap: 20px;
 				width: 100%;
 				padding-right: 2rem;
@@ -100,6 +100,16 @@
 				grid-template-columns: repeat(3, 1fr);
 				gap: 40px;
 				width: 150%;
+				--mask: linear-gradient(
+						to bottom,
+						rgba(0, 0, 0, 1) 0,
+						rgba(0, 0, 0, 1) 50%,
+						rgba(0, 0, 0, 0) 95%,
+						rgba(0, 0, 0, 0) 0
+					)
+					100% 50% / 100% 100% repeat-x;
+				-webkit-mask: var(--mask);
+				mask: var(--mask);
 			}
 			.showcase-grid a {
 				position: relative;
@@ -139,7 +149,7 @@
 					--content-width: 90%;
 				}
 				.hero-container {
-					height: 60vh;
+					height: 60svh;
 				}
 				.swimlane-subtitle {
 					width: 100%;
@@ -153,10 +163,11 @@
 					--content-width: 90%;
 				}
 				.hero-container {
-					height: 60vh;
+					height: 70svh;
 				}
 				.hero-container h1 {
 					margin: 4rem 0 0 0;
+					font-size: 2.2rem;
 				}
 				.swimlane-title {
 					font-size: 1.8rem;
@@ -410,25 +421,25 @@ markdown files.
 					</p>
 					<a class="link-button" href="/essentials/">Learn more</a>
 					<section class="showcase-grid">
-						<a href="https://web.dev/articles/ps-on-the-web#web-components-and-lit">
-							<span>Photoshop</span>
-							<img src="/_imgs/photoshop.png" alt="Photoshop for the web" />
-						</a>
 						<a href="https://youtube.com">
 							<span>YouTube</span>
 							<img src="/_imgs/youtube.png" alt="YouTube homepage" />
+						</a>
+						<a href="https://web.dev/articles/ps-on-the-web#web-components-and-lit">
+							<span>Photoshop</span>
+							<img src="/_imgs/photoshop.png" alt="Photoshop for the web" />
 						</a>
 						<a href="https://reddit.com">
 							<span>Reddit</span>
 							<img src="/_imgs/reddit.png" alt="Reddit page" />
 						</a>
-						<a href="https://modelviewer.dev/">
-							<span>Model viewer</span>
-							<img src="/_imgs/model-viewer.png" alt="3D model viewer web component" />
-						</a>
 						<a href="https://iamkulykov.com/vanilla-colorful/">
 							<span>Vanilla colorful</span>
 							<img src="/_imgs/vanilla-colorful.png" alt="Color picker web component" />
+						</a>
+						<a href="https://modelviewer.dev/">
+							<span>Model viewer</span>
+							<img src="/_imgs/model-viewer.png" alt="3D model viewer web component" />
 						</a>
 						<a href="https://nolanlawson.github.io/emoji-picker-element/">
 							<span>Emoji picker</span>
