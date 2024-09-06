@@ -4,15 +4,6 @@
 	overflow: scroll;
 	padding: 0 2rem;
 }
-.framework-examples {
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
-	width: 4400px !important;
-	gap: 20px;
-	width: 100%;
-	padding-right: 2rem;
-}
 @media (max-width: 768px) {
 	.scroll-container {
 		width: 100vw !important;

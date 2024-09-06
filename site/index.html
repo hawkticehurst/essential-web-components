@@ -89,9 +89,10 @@
 				display: flex;
 				flex-flow: row nowrap;
 				align-items: center;
-				width: 4400px !important;
+				width: 3700px !important;
 				gap: 20px;
 				width: 100%;
+				padding-right: 2rem;
 			}
 			.showcase-grid {
 				margin: 3rem 0;
@@ -103,22 +104,13 @@
 			.showcase-grid a {
 				position: relative;
 				border-radius: 4px;
+				height: fit-content;
+				width: fit-content;
 			}
 			.showcase-grid a:hover {
 				background-color: rgb(55, 55, 55);
-				width: fit-content;
-				height: fit-content;
 			}
-			.showcase-grid a:focus-visible {
-				height: fit-content;
-				width: fit-content;
-			}
-			.showcase-grid a:hover img {
-				opacity: 0.5;
-				transition: ease 0.1s;
-			}
-			.showcase-grid a:hover::after {
-				content: attr(data-text);
+			.showcase-grid a span {
 				font-weight: 500;
 				font-size: 0.9rem;
 				position: absolute;
@@ -128,6 +120,11 @@
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
+				opacity: 0;
+				transition: opacity 0.2s ease;
+			}
+			.showcase-grid a:hover span {
+				opacity: 1;
 			}
 			.showcase-grid img {
 				border-radius: 4px;
@@ -216,34 +213,34 @@
 						<!-- <span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-highlight>shadowRoot</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>); -->
 						<div class="component-editor">
 							<pre styled><code>&lt;<span>counter-button</span>&gt;
-		&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span class="code-snippet-count" data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
-	&lt;/<span>counter-button</span>&gt;
-	
-	&lt;<span>script</span>&gt;
-		<span>class</span> <span data-class>CounterButton</span> <span>extends</span> <span data-class>HTMLElement</span> {
-			<span>constructor</span>() {
-				<span>super</span>();
-				<span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>);
-				<span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>);
-				<span>this</span>.<span data-highlight>button</span>.<span data-fn>addEventListener</span>(<span data-string>'click'</span>, <span>this</span>.<span data-highlight>increment</span>.<span data-fn>bind</span>(<span>this</span>));
-			}
-			<span data-fn>increment</span>() {
-				<span>const</span> <span data-highlight>count</span> = <span data-fn>parseInt</span>(<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span>);
-				<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span> = <span data-string>`</span><span>${</span><span data-highlight>count</span> + 1<span>}</span><span data-string>`</span>;
-			}
+	&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span class="code-snippet-count" data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
+&lt;/<span>counter-button</span>&gt;
+
+&lt;<span>script</span>&gt;
+	<span>class</span> <span data-class>CounterButton</span> <span>extends</span> <span data-class>HTMLElement</span> {
+		<span>constructor</span>() {
+			<span>super</span>();
+			<span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>);
+			<span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>);
+			<span>this</span>.<span data-highlight>button</span>.<span data-fn>addEventListener</span>(<span data-string>'click'</span>, <span>this</span>.<span data-highlight>increment</span>.<span data-fn>bind</span>(<span>this</span>));
 		}
-		<span data-highlight>customElements</span>.<span data-fn>define</span>(<span data-string>'counter-button'</span>, <span data-class>CounterButton</span>);
-	&lt;/<span>script</span>&gt;
-	
-	&lt;<span>style</span>&gt;
-		<span data-selector>counter-button > button</span> {
-			<span data-highlight>font</span>: <span data-string>inherit</span>;
-			<span data-highlight>color</span>: <span data-string>var(--foreground-color)</span>;
-			<span data-highlight>background</span>: <span data-string>var(--background-color)</span>;
-			<span data-highlight>padding</span>: <span data-string>8px 16px</span>;
-			<span data-highlight>border-radius</span>: <span data-string>10px</span>;
+		<span data-fn>increment</span>() {
+			<span>const</span> <span data-highlight>count</span> = <span data-fn>parseInt</span>(<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span>);
+			<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span> = <span data-string>`</span><span>${</span><span data-highlight>count</span> + 1<span>}</span><span data-string>`</span>;
 		}
-	&lt;/<span>style</span>&gt;</code></pre>
+	}
+	<span data-highlight>customElements</span>.<span data-fn>define</span>(<span data-string>'counter-button'</span>, <span data-class>CounterButton</span>);
+&lt;/<span>script</span>&gt;
+
+&lt;<span>style</span>&gt;
+	<span data-selector>counter-button > button</span> {
+		<span data-highlight>font</span>: <span data-string>inherit</span>;
+		<span data-highlight>color</span>: <span data-string>var(--foreground-color)</span>;
+		<span data-highlight>background</span>: <span data-string>var(--background-color)</span>;
+		<span data-highlight>padding</span>: <span data-string>8px 16px</span>;
+		<span data-highlight>border-radius</span>: <span data-string>10px</span>;
+	}
+&lt;/<span>style</span>&gt;</code></pre>
 						</div>
 						<div class="component-view">
 							<counter-button>
@@ -270,15 +267,15 @@
 								</p>
 								<div class="code-editor">
 									<pre styled><code>&lt;!<span>DOCTYPE</span> <span data-highlight>html</span>&gt;
-	&lt;<span>html</span> <span data-highlight>lang</span>=<span data-string>"en"</span>&gt;
-		&lt;<span>head</span>&gt;
-			&lt;<span>title</span>&gt;Hello Web Components!&lt;/<span>title</span>&gt;
-		&lt;/<span>head</span>&gt;
-		&lt;<span>body</span>&gt;
-			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-			&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;
-		&lt;/<span>body</span>&gt;
-	&lt;/<span>html</span>&gt;</code></pre>
+&lt;<span>html</span> <span data-highlight>lang</span>=<span data-string>"en"</span>&gt;
+	&lt;<span>head</span>&gt;
+		&lt;<span>title</span>&gt;Hello Web Components!&lt;/<span>title</span>&gt;
+	&lt;/<span>head</span>&gt;
+	&lt;<span>body</span>&gt;
+		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+		&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;
+	&lt;/<span>body</span>&gt;
+&lt;/<span>html</span>&gt;</code></pre>
 								</div>
 							</div>
 							<div class="code-display">
@@ -290,12 +287,12 @@
 									<pre
 										styled
 									><code>&lt;<span>script</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
-		<span data-import>import</span> <span data-string>'./counter-button'</span>;
-	&lt;<span>script</span>&gt;
-	
-	&lt;<span>main</span>&gt;
-		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-	&lt;/<span>main</span>&gt;</code></pre>
+	<span data-import>import</span> <span data-string>'./counter-button'</span>;
+&lt;<span>script</span>&gt;
+
+&lt;<span>main</span>&gt;
+	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+&lt;/<span>main</span>&gt;</code></pre>
 								</div>
 							</div>
 							<div class="code-display">
@@ -307,14 +304,14 @@
 									<pre
 										styled
 									><code>&lt;<span>script</span> <span data-highlight>setup</span> <span data-highlight>lang</span>=<span data-string>"ts"</span>&gt;
-	<span data-import>import</span> <span data-string>'./counter-button'</span>;
-	&lt;<span>script</span>&gt;
-	
-	&lt;<span>template</span>&gt;
-		&lt;<span>main</span>&gt;
-			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-		&lt;/<span>main</span>&gt;
-	&lt;/<span>template</span>&gt;</code></pre>
+<span data-import>import</span> <span data-string>'./counter-button'</span>;
+&lt;<span>script</span>&gt;
+
+&lt;<span>template</span>&gt;
+	&lt;<span>main</span>&gt;
+		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+	&lt;/<span>main</span>&gt;
+&lt;/<span>template</span>&gt;</code></pre>
 								</div>
 							</div>
 							<div class="code-display">
@@ -326,15 +323,15 @@
 									<pre
 										styled
 									><code><span data-import>import</span> <span data-highlight>React</span> <span data-import>from</span> <span data-string>"react"</span>;
-	<span data-import>import</span> <span data-string>'./counter-button'</span>;
+<span data-import>import</span> <span data-string>'./counter-button'</span>;
 	
-	<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
-		<span data-import>return</span> (
-			&lt;<span>main</span>&gt;
-				&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-			&lt;/<span>main</span>&gt;
-		);
-	}</code></pre>
+<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
+	<span data-import>return</span> (
+		&lt;<span>main</span>&gt;
+			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+		&lt;/<span>main</span>&gt;
+	);
+}</code></pre>
 								</div>
 							</div>
 							<div class="code-display">
@@ -345,10 +342,10 @@
 								<div class="code-editor">
 									<pre styled><code># No MDX Needed!
 	
-	Web components can be used right inside
-	markdown files.
-	
-	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
+Web components can be used right inside
+markdown files.
+
+&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
 								</div>
 							</div>
 							<div class="code-display">
@@ -358,10 +355,10 @@
 								</p>
 								<div class="code-editor">
 									<pre styled><code>&lt;<span>main</span>&gt;
-		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-	&lt;/<span>main</span>&gt;
-	
-	&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;</code></pre>
+	&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+&lt;/<span>main</span>&gt;
+
+&lt;<span>script</span> <span data-highlight>src</span>=<span data-string>"./counter-button.js"</span>&gt;&lt;/<span>script</span>&gt;</code></pre>
 								</div>
 							</div>
 							<div class="code-display">
@@ -374,13 +371,13 @@
 										styled
 									><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
 	
-	<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
-		<span data-import>return</span> (
-			&lt;<span>main</span>&gt;
-				&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-			&lt;/<span>main</span>&gt;
-		);
-	}</code></pre>
+<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
+	<span data-import>return</span> (
+		&lt;<span>main</span>&gt;
+			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+		&lt;/<span>main</span>&gt;
+	);
+}</code></pre>
 								</div>
 							</div>
 							<div class="code-display">
@@ -392,25 +389,14 @@
 									<pre
 										styled
 									><code><span data-import>import</span> <span data-string>'./counter-button'</span>;
-	
-	<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
-		<span data-import>return</span> (
-			&lt;<span>main</span>&gt;
-				&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-			&lt;/<span>main</span>&gt;
-		);
-	}</code></pre>
-								</div>
-							</div>
-							<div class="code-display">
-								<p class="title">
-									<img src="/_icons/angular.svg" alt="Angular logo" />
-									Angular
-								</p>
-								<div class="code-editor">
-									<pre styled><code>&lt;<span>main</span>&gt;
-		&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
-	&lt;/<span>main</span>&gt;</code></pre>
+
+<span data-import>export default</span> <span>function</span> <span data-selector>App</span>() {
+	<span data-import>return</span> (
+		&lt;<span>main</span>&gt;
+			&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;
+		&lt;/<span>main</span>&gt;
+	);
+}</code></pre>
 								</div>
 							</div>
 						</div>
@@ -424,25 +410,28 @@
 					</p>
 					<a class="link-button" href="/essentials/">Learn more</a>
 					<section class="showcase-grid">
-						<a href="https://youtube.com" data-text="YouTube">
-							<img src="/_imgs/youtube.png" alt="YouTube homepage" />
-						</a>
-						<a
-							href="https://web.dev/articles/ps-on-the-web#web-components-and-lit"
-							data-text="Photoshop"
-						>
+						<a href="https://web.dev/articles/ps-on-the-web#web-components-and-lit">
+							<span>Photoshop</span>
 							<img src="/_imgs/photoshop.png" alt="Photoshop for the web" />
 						</a>
-						<a href="https://reddit.com" data-text="Reddit">
+						<a href="https://youtube.com">
+							<span>YouTube</span>
+							<img src="/_imgs/youtube.png" alt="YouTube homepage" />
+						</a>
+						<a href="https://reddit.com">
+							<span>Reddit</span>
 							<img src="/_imgs/reddit.png" alt="Reddit page" />
 						</a>
-						<a href="https://modelviewer.dev/" data-text="Model viewer">
+						<a href="https://modelviewer.dev/">
+							<span>Model viewer</span>
 							<img src="/_imgs/model-viewer.png" alt="3D model viewer web component" />
 						</a>
-						<a href="https://iamkulykov.com/vanilla-colorful/" data-text="Vanilla colorful">
+						<a href="https://iamkulykov.com/vanilla-colorful/">
+							<span>Vanilla colorful</span>
 							<img src="/_imgs/vanilla-colorful.png" alt="Color picker web component" />
 						</a>
-						<a href="https://nolanlawson.github.io/emoji-picker-element/" data-text="Emoji picker">
+						<a href="https://nolanlawson.github.io/emoji-picker-element/">
+							<span>Emoji picker</span>
 							<img src="/_imgs/emoji-picker.png" alt="Emoji picker web component" />
 						</a>
 					</section>
