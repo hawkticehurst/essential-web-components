@@ -89,7 +89,7 @@
 				display: flex;
 				flex-flow: row nowrap;
 				align-items: center;
-				width: 3750px !important;
+				width: 3900px !important;
 				gap: 20px;
 				padding: 0 2rem;
 			}
@@ -228,9 +228,12 @@
 	<span>class</span> <span data-class>CounterButton</span> <span>extends</span> <span data-class>HTMLElement</span> {
 		<span>constructor</span>() {
 			<span>super</span>();
-			<span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>);
 			<span>this</span>.<span data-highlight>span</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'span'</span>);
-			<span>this</span>.<span data-highlight>button</span>.<span data-fn>addEventListener</span>(<span data-string>'click'</span>, <span>this</span>.<span data-highlight>increment</span>.<span data-fn>bind</span>(<span>this</span>));
+			<span>this</span>.<span data-highlight>button</span> = <span>this</span>.<span data-fn>querySelector</span>(<span data-string>'button'</span>);
+			<span>this</span>.<span data-highlight>button</span>.<span data-fn>addEventListener</span>(
+				<span data-string>'click'</span>, 
+				<span>this</span>.<span data-highlight>increment</span>.<span data-fn>bind</span>(<span>this</span>)
+			);
 		}
 		<span data-fn>increment</span>() {
 			<span>const</span> <span data-highlight>count</span> = <span data-fn>parseInt</span>(<span>this</span>.<span data-highlight>span</span>.<span data-fn>textContent</span>);
