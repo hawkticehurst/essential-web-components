@@ -90,8 +90,8 @@
 			</p>
 			<p>
 				Restated more clearly: <em>Web components are HTML elements</em>. From the browsers
-				perspective, a web component is just as much an HTML element as a <code>p</code> or
-				<code>div</code> element.
+				perspective, a web component is just as much an HTML element as a <code>&lt;p&gt;</code> or
+				<code>&lt;div&gt;</code> element.
 			</p>
 			<p>
 				The implications of this are extremely important. Web components do not follow the same
@@ -121,8 +121,8 @@
 			<p>No. In an ideal world they should work together.</p>
 			<p>
 				At its core, web components only provide a way of grouping reusable chunks of UI and
-				behavior. As of 2024, they provide nothing for routing, reactive data, and so on, like you
-				might find in a modern web framework.
+				behavior. As of 2024, they provide no APIs for routing, reactive data, templating syntax,
+				and so on, like you might find in a modern web framework.
 			</p>
 			<section class="info-banner">
 				<p>
@@ -133,7 +133,7 @@
 			<h2>When should I use web components?</h2>
 			<p>The answer can vary a bit depending on who you ask.</p>
 			<p>
-				One of the most prominent use cases is to build framework independent design systems and
+				One of the most prominent use cases is to build web framework independent design systems and
 				component libraries. Check out <a href="https://shoelace.style/">Shoelace</a> as a great
 				example of a very mature web component library.
 			</p>
@@ -149,8 +149,8 @@
 				>.
 			</p>
 			<p>
-				And others, still, like to build their entire applications using web components. For
-				example, see
+				And others, still, choose to build entire applications using web components. For example,
+				see
 				<a href="https://web.dev/articles/ps-on-the-web#web-components-and-lit">Photoshop</a>,
 				<a href="https://www.reddit.com">Reddit</a> (inspect code),
 				<a href="https://www.youtube.com/">YouTube</a> (inspect code),
@@ -178,7 +178,7 @@
 			</ul>
 			<h2>What does a web component look like?</h2>
 			<p>
-				From the perspective of web component consumer, they look like HTML elements with some
+				From the perspective of a web component consumer, they look like HTML elements with some
 				special differences. Specifically, to avoid naming collisions with regular HTML elements,
 				all custom elements must follow a few rules:
 			</p>
@@ -217,8 +217,8 @@
 				</p>
 			</section>
 			<p>
-				On the other hand, from the perspective of an author, web components look like JavaScript
-				classes that extend the native <code>HTMLElement</code> interface.
+				From the perspective of a web component author, they look like JavaScript classes that
+				extend the native <code>HTMLElement</code> interface.
 			</p>
 			<p>
 				The <a href="https://javascript.info/custom-elements">Custom Elements API</a> is the
@@ -235,7 +235,25 @@
 <span data-highlight>customElements</span>.<span data-fn>define</span>(<span data-string>'my-component'</span>, <span data-class>MyComponent</span>);</code></pre>
 			<p>
 				This web component renders nothing and has no functionality. But it <em>is</em> a web
-				component.
+				component. It <em>is</em> an HTML element.
+			</p>
+			<p>
+				Beyond registering custom HTML elements with the browser, the Custom Elements API also
+				provides several component
+				<a
+					href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks"
+					>lifecycle methods</a
+				>
+				that let you define custom behavior when a component is:
+			</p>
+			<ul>
+				<li>Added to a page</li>
+				<li>Removed from a page</li>
+				<li>Moved to a new page</li>
+			</ul>
+			<p>
+				There is also a lifecycle method for when a component attribute has been changed, added,
+				removed, or replaced.
 			</p>
 			<section class="info-banner">
 				<p>
@@ -254,8 +272,8 @@
 			</section>
 			<h2>How do you architect a web component?</h2>
 			<p>
-				There are two major ways of building/architecting web components. These two methods are
-				commonly referred to as “HTML Web Components” and “JavaScript Web Components.”
+				There are two major ways of architecting a web component. These two methods are commonly
+				referred to as “HTML Web Components” and “JavaScript Web Components.”
 			</p>
 			<p>
 				HTML Web Components are perhaps the simpler and more flexible way of building web
@@ -264,24 +282,23 @@
 			</p>
 			<p>
 				These components only use the Custom Elements API and do not use any other APIs you might
-				find in the “web components” bucket, such as Shadow DOM or templates.
+				find in the “web components” bucket. They look like this:
 			</p>
-			<p>They look like this:</p>
 			<pre styled><code>&lt;<span>counter-button</span>&gt;
 	&lt;<span>button</span>&gt;Clicked &lt;<span>span</span>&gt;<span data-base>0</span>&lt;/<span>span</span>&gt; times&lt;/<span>button</span>&gt;
 &lt;/<span>counter-button</span>&gt;</code></pre>
+			<p>In other words, an HTML Web Component will hydrate/progressively enhance existing HTML.</p>
 			<p>
 				JavaScript Web Components, on the other hand, are historically what most people would think
-				of as “regular” web components. They use a wider variety of web component APIs to create
-				components that are similar to single-page application (SPA) components.
+				of as “regular” web components. They use a wider variety of web component APIs, such as
+				Shadow DOM or templates. They look like this:
 			</p>
-			<p>They look like this:</p>
 			<pre
 				styled
 			><code>&lt;<span>counter-button</span>&gt;&lt;/<span>counter-button</span>&gt;</code></pre>
 			<p>
-				The HTML Web Component will hydrate/progressively enhance existing HTML, while the
-				JavaScript Web Component will dynamically generate UI at runtime.
+				In other words, JavaScript Web Component will dynamically generate UI at runtime, similar to
+				single-page application (SPA) components.
 			</p>
 			<p>
 				There are benefits and drawbacks to both models, so it’s usually a case of picking the right
@@ -352,28 +369,29 @@
 			</ul>
 			<h2>How do new web component APIs get added?</h2>
 			<p>
-				Just like any other browser API, new web component APIs (read: features) must go through
-				their own standards process.
+				Just like any other browser API, new web component APIs must go through their own standards
+				process.
 			</p>
 			<p>
 				A combination of various <a href="https://github.com/w3c/webcomponents-cg/">community</a>
 				<a href="https://github.com/WICG/webcomponents">groups</a> and browser vendor teams are
-				continuously working together to propose new APIs, specify and standarize how the should
+				continuously working together to propose new APIs, specify and standarize how they should
 				work, and then get them implemented across browsers.
 			</p>
 			<p>This. process. takes. time.</p>
 			<section class="info-banner">
 				<p>
-					Historical context: This is, in large part, the reason that web components, despite being
-					introduced back in the early 2010s, have taken so long to really increase in adoption. It
-					took almost a decade to get the first set of web component APIs standarized and
-					implemented across all major browsers.
+					Historical context: This is the reason that web components, despite being introduced back
+					in the early 2010s, have taken so long to really increase in adoption. It took almost a
+					decade to get the first set of web component APIs standarized and implemented across all
+					major browsers.
 				</p>
 			</section>
 			<p>
 				Lucky for us, this process is starting to move quicker. Efforts like
-				<a href="https://web.dev/interop-2022/">Interop 2022</a> and
-				<a href="https://web.dev/blog/interop-2023">Interop 2023</a> have meant all major browser
+				<a href="https://web.dev/blog/interop-2022">Interop 2022</a>,
+				<a href="https://web.dev/blog/interop-2023">Interop 2023</a>, and
+				<a href="https://web.dev/blog/interop-2024">Interop 2024</a> have meant all major browser
 				vendors are working together to solve browser compatibility issues and is hinting at a new
 				reality where these vendors are committing to be better about implementing new and existing
 				APIs in a timely and consistent way.
@@ -397,7 +415,7 @@
 			<h2>What are web component frameworks and should I use them?</h2>
 			<p>
 				Web component frameworks are opinionated abstractions on top of the lower level browser APIs
-				that have been mentioned above. They also usually provide enhancements such as improved
+				that have been mentioned above. They usually provide enhancements such as improved
 				templating, reactive data, declarative syntax, and other general improvements to the
 				experience of building web components.
 			</p>
@@ -414,11 +432,14 @@
 				</li>
 				<li><a href="https://stenciljs.com/">Stencil</a> (by Ionic)</li>
 				<li>
-					<a href="https://hauntedhooks.netlify.app/">Haunted</a> (by Matthew Phillips, a core
-					maintainer of Astro)
+					<a href="https://hauntedhooks.netlify.app/">Haunted</a> (by Matthew Phillips, co-creator
+					of Astro)
 				</li>
 				<li><a href="https://github.com/lume/element">Lume Element</a> (by Joe Pea)</li>
-				<li><a href="https://github.com/hawkticehurst/stellar">Stellar</a> (by Hawk Ticehurst)</li>
+				<li>
+					<a href="https://github.com/hawkticehurst/stellar">Stellar</a> (by Hawk Ticehurst, creator
+					of this website!)
+				</li>
 			</ul>
 			<p>
 				For an even more exhaustive list of web component frameworks/libraries check out
@@ -431,7 +452,6 @@
 				Solid, Preact, and Vue) have the ability to export their components as standalone web
 				components.
 			</p>
-			<p>With all that said, if you're not sure where to start, go with Lit.</p>
 			<h2>I want to learn more, where do I go from here?</h2>
 			<p>
 				Great question! Below is a list of web component blog posts and resources that are worth
