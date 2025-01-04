@@ -10,35 +10,28 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url('/_fonts/Seravek.woff2') format('woff2');
+	src: url('/_fonts/SeravekWebBasicRegular.woff2') format('woff2');
 }
 @font-face {
 	font-family: 'Seravek';
 	font-style: italic;
 	font-weight: 400;
 	font-display: swap;
-	src: url('/_fonts/Seravek-Italic.woff2') format('woff2');
+	src: url('/_fonts/SeravekWebBasicRegularItalic.woff2') format('woff2');
 }
 @font-face {
 	font-family: 'Seravek';
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
-	src: url('/_fonts/Seravek-Medium.woff2') format('woff2');
+	src: url('/_fonts/SeravekWebBasicMedium.woff2') format('woff2');
 }
 @font-face {
 	font-family: 'Seravek';
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url('/_fonts/Seravek-Bold.woff2') format('woff2');
-}
-@font-face {
-	font-family: 'Seravek';
-	font-style: italic;
-	font-weight: 700;
-	font-display: swap;
-	src: url('/_fonts/Seravek-Bold-Italic.woff2') format('woff2');
+	src: url('/_fonts/SeravekWebBasicBold.woff2') format('woff2');
 }
 :root {
 	color-scheme: dark;
